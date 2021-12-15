@@ -32,10 +32,9 @@ def show_GUI_table(df):
     app.geometry('600x400+200+100')
     app.title('商品列表')
     f = tkinter.Frame(app)
-    f.pack(fill=tkinter.BOTH, expand=1)
+    f.grid(row = 0 , column = 0)
 
-    table = pt = pandastable.Table(f, dataframe=df,
-                                   showtoolbar=True, showstatusbar=True)
+    pt = pandastable.Table(f, dataframe=df,showtoolbar=True, showstatusbar=True)
     pt.show()
     app.mainloop()
 
@@ -54,6 +53,7 @@ def create_df(word):
     for i in range(5):
         df = organize_data.remove_zero(df)
         df = organize_data.remove_outliers(df)
+    df = df.reset_index(drop=True)
     return df
 
 def count():

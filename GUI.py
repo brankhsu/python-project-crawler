@@ -6,7 +6,7 @@ import shopee_data as sd
 import matplotlib.pyplot as plt
 import numpy as np
 
-from graphic_data import draw_scatter_figure
+from graphic_data import draw_scatter_figure, show_GUI_table
 
 
 def inputbox():
@@ -24,7 +24,6 @@ def inputbox():
     mybutton = tkinter.Button(root, text='Search', command=button_event)
     mybutton.grid(row=1, column=1)
     root.mainloop()
-
     return var.get()
 
 
@@ -79,7 +78,9 @@ def show_graph():
     plt.style.use('ggplot')
     plt.rcParams['font.family'] = 'DFKai-SB'
     df = sd.count()
+    print(df)
     df['出現次數'].plot(kind='pie', title='圓餅圖', figsize=(4, 4))
+    plt.show()
     return
 
 
@@ -96,42 +97,42 @@ def GUI_2(df):
 
     fontStyle = tkinter.font.Font(family="Lucida Grande", size=10)
     frame1 = Frame(master = root ,width=1000, height=350)
-    #frame2 = Frame(width=1000, height=350)
-    #frame3 = Frame(width=1000, height=350)
+    frame2 = Frame(width=1000, height=350)
+    frame3 = Frame(width=1000, height=350)
     frame1.grid(row=0, column=0)
-    #frame2.grid(row=1, column=0)
-    #frame3.grid(row=2, column=0)
+    frame2.grid(row=1, column=0)
+    frame3.grid(row=2, column=0)
 
     label = Label(frame1, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
                   bd=180, font=fontStyle, fg='SlateGray')
     label.grid(row = 0 , column = 0)
     pt1 = pandastable.Table(frame1, dataframe=df1, showtoolbar=True, showstatusbar=True)
 
-    #label2 = Label(frame2, text="地雷款 (低價，低需求)\n地雷款基本上此區商品不是主要營收來源，上架商品順序的話，會建議盡量先避開此區商品。", justify=LEFT,
-                  #bd=180, font=fontStyle, fg='SlateGray')
-    #pt2 = pandastable.Table(frame2, dataframe=df2, showtoolbar=True, showstatusbar=True)
-
-    #label3 = Label(frame3, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
-                  #bd=180, font=fontStyle, fg='SlateGray')
-    #label3.grid(row=0, column=0)
-    #pt3 = pandastable.Table(frame3, dataframe=df3, showtoolbar=True, showstatusbar=True)
+    label2 = Label(frame2, text="地雷款 (低價，低需求)\n地雷款基本上此區商品不是主要營收來源，上架商品順序的話，會建議盡量先避開此區商品。", justify=LEFT,
+                  bd=180, font=fontStyle, fg='SlateGray')
+    pt2 = pandastable.Table(frame2, dataframe=df2, showtoolbar=True, showstatusbar=True)
+    label2.grid(row=0, column=0)
+    label3 = Label(frame3, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
+                  bd=180, font=fontStyle, fg='SlateGray')
+    label3.grid(row=0, column=0)
+    pt3 = pandastable.Table(frame3, dataframe=df3, showtoolbar=True, showstatusbar=True)
 
     pt1.show()
-    #pt2.show()
-    #pt3.show()
+    pt2.show()
+    pt3.show()
 
     root.mainloop()
 
 
 def GUI_3(df):
         def button_event():
-            root.update()
+            # root.update()
             low = int(myentry1.get())
             high = int(myentry2.get())
             df2 = df[(df['價格'] > low) & (df['價格'] < high)]
             df2 = df2.reset_index(drop=True)
-            sd.show_GUI_table(df2)
-            root.destroy()
+            show_GUI_table(df2)
+            # root.destroy()
         root = tkinter.Tk()
         root.title('同類商品價格查詢')
         root.geometry('400x100')

@@ -28,7 +28,7 @@ def draw_scatter_figure(df):
     # print("數量中位數: "+str(np.median(historical_sold)))
     # print("價錢中位數: NT$"+str(np.median(price)))
 
-    plt.show()
+    # plt.show()
     return [np.median(historical_sold) , np.median(price)]
 def draw_box_figure(df):
     plt.style.use("ggplot")
@@ -55,5 +55,19 @@ def window_result(df):
 
     table = pt = pandastable.Table(f, dataframe=df,
                                    showtoolbar=True, showstatusbar=True)
+    pt.show()
+    app.mainloop()
+
+
+def show_GUI_table(df):
+
+    app = tkinter.Toplevel()
+    # app.geometry('600x400+200+100')
+    app.title('商品列表')
+    f = tkinter.Frame(app)
+    f.pack(fill=tkinter.BOTH, expand=1)
+    f.grid(row = 0 , column = 0)
+
+    pt = pandastable.Table(f, dataframe=df,showtoolbar=True, showstatusbar=True)
     pt.show()
     app.mainloop()

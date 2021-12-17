@@ -84,35 +84,43 @@ def show_graph():
 
 
 def GUI_2(df):
+    root = Tk()
+    root.title('蝦皮產品分析')
     median = draw_scatter_figure(df)
     median_sold = median[0]
     median_price = median[1]
 
-    df1 = df[df['已售出數量'] > median_sold and df['價格'] < median_price]  # 低價高需求
-    df2 = df[df['已售出數量'] < median_sold and df['價格'] < median_price]  # 低價低需求
-    df3 = df[df['已售出數量'] < median_sold and df['價格'] > median_price]  # 高價低需求
+    df1 = df[(df['已售出數量'] > median_sold) & (df['價格'] < median_price)]  # 低價高需求
+    df2 = df[(df['已售出數量'] < median_sold) & (df['價格'] < median_price)]  # 低價低需求
+    df3 = df[(df['已售出數量'] < median_sold) & (df['價格'] > median_price)]  # 高價低需求
 
-    t = tkinter.Tk()
-    t.title('蝦皮產品分析')
-    t['bg'] = 'RoyalBlue'
-    fontStyle = tkinter.font.Font(family="Lucida Grande", size=30)
-    frame1 = Frame(width=1000, height=350)
-    frame2 = Frame(width=1000, height=350)
-    frame3 = Frame(width=1000, height=350)
-    frame1.grid(row=0, column=0, sticky=t.E + t.W)
-    frame2.grid(row=1, column=0, sticky=t.E + t.W)
-    frame3.grid(row=2, column=0, sticky=t.E + t.W)
+    fontStyle = tkinter.font.Font(family="Lucida Grande", size=10)
+    frame1 = Frame(master = root ,width=1000, height=350)
+    #frame2 = Frame(width=1000, height=350)
+    #frame3 = Frame(width=1000, height=350)
+    frame1.grid(row=0, column=0)
+    #frame2.grid(row=1, column=0)
+    #frame3.grid(row=2, column=0)
 
-    label = Label(frame1, text="引流款 (低價，高需求 ) \n 衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
+    label = Label(frame1, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
                   bd=180, font=fontStyle, fg='SlateGray')
     label.grid(row = 0 , column = 0)
     pt1 = pandastable.Table(frame1, dataframe=df1, showtoolbar=True, showstatusbar=True)
-    pt1.grid(row = 1 ,column = 0)
+
+    #label2 = Label(frame2, text="地雷款 (低價，低需求)\n地雷款基本上此區商品不是主要營收來源，上架商品順序的話，會建議盡量先避開此區商品。", justify=LEFT,
+                  #bd=180, font=fontStyle, fg='SlateGray')
+    #pt2 = pandastable.Table(frame2, dataframe=df2, showtoolbar=True, showstatusbar=True)
+
+    #label3 = Label(frame3, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
+                  #bd=180, font=fontStyle, fg='SlateGray')
+    #label3.grid(row=0, column=0)
+    #pt3 = pandastable.Table(frame3, dataframe=df3, showtoolbar=True, showstatusbar=True)
+
     pt1.show()
+    #pt2.show()
+    #pt3.show()
 
-
-
-    t.mainloop()
+    root.mainloop()
 
 
 def GUI_3(df):

@@ -15,7 +15,7 @@ user_agent = fake_useragent.UserAgent()
 name = []
 historical_sold = []
 price = []
-number_of_transactions = 500  #須為100的倍數
+number_of_transactions = 100  #須為100的倍數
 
 def add_data(url):
     req = requests.get(url, headers={ 'user-agent': user_agent.random })
@@ -27,16 +27,7 @@ def add_data(url):
         historical_sold.append(data2[i]['item_basic']['historical_sold'])
         price.append(data2[i]['item_basic']['price'] / 100000)
 
-def show_GUI_table(df):
-    app = tkinter.Tk()
-    app.geometry('600x400+200+100')
-    app.title('商品列表')
-    f = tkinter.Frame(app)
-    f.grid(row = 0 , column = 0)
 
-    pt = pandastable.Table(f, dataframe=df,showtoolbar=True, showstatusbar=True)
-    pt.show()
-    app.mainloop()
 
 
 def create_df(word):

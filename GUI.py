@@ -27,7 +27,7 @@ def inputbox():
     return var.get()
 
 
-def mainframe(df,keyword):
+def mainframe(df,df1,keyword):
     def exit_frame():
         t.destroy()
 
@@ -35,7 +35,7 @@ def mainframe(df,keyword):
         show_graph()  # 畫圓餅圖
 
     def action2():
-        draw_scatter_figure(df) #列出4大種類
+        draw_scatter_figure(df1) #列出4大種類
 
     def action3():
         GUI_3(df) #同類商品價格
@@ -78,73 +78,20 @@ def show_graph():
     plt.style.use('ggplot')
     plt.rcParams['font.family'] = 'DFKai-SB'
     df = sd.count()
-    print(df)
     df['出現次數'].plot(kind='pie', title='圓餅圖', figsize=(4, 4))
     plt.show()
     return
 
 
-<<<<<<< HEAD
 def GUI_3(df):
         def button_event():
-=======
-def GUI_2(df):
-    root = Tk()
-    root.title('蝦皮產品分析')
-    median = draw_scatter_figure(df)
-    median_sold = median[0]
-    median_price = median[1]
-
-    df1 = df[(df['已售出數量'] > median_sold) & (df['價格'] < median_price)]  # 低價高需求
-    df2 = df[(df['已售出數量'] < median_sold) & (df['價格'] < median_price)]  # 低價低需求
-    df3 = df[(df['已售出數量'] < median_sold) & (df['價格'] > median_price)]  # 高價低需求
-
-    fontStyle = tkinter.font.Font(family="Lucida Grande", size=10)
-    frame1 = Frame(master = root ,width=1000, height=350)
-    frame2 = Frame(width=1000, height=350)
-    frame3 = Frame(width=1000, height=350)
-    frame1.grid(row=0, column=0)
-    frame2.grid(row=1, column=0)
-    frame3.grid(row=2, column=0)
-
-    label = Label(frame1, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
-                  bd=180, font=fontStyle, fg='SlateGray')
-    label.grid(row = 0 , column = 0)
-    pt1 = pandastable.Table(frame1, dataframe=df1, showtoolbar=True, showstatusbar=True)
-
-    label2 = Label(frame2, text="地雷款 (低價，低需求)\n地雷款基本上此區商品不是主要營收來源，上架商品順序的話，會建議盡量先避開此區商品。", justify=LEFT,
-                  bd=180, font=fontStyle, fg='SlateGray')
-    pt2 = pandastable.Table(frame2, dataframe=df2, showtoolbar=True, showstatusbar=True)
-    label2.grid(row=0, column=0)
-    label3 = Label(frame3, text="引流款 (低價，高需求 ) \n衝評價或是利用免運門檻來提高客單價進行收單。", justify=LEFT,
-                  bd=180, font=fontStyle, fg='SlateGray')
-    label3.grid(row=0, column=0)
-    pt3 = pandastable.Table(frame3, dataframe=df3, showtoolbar=True, showstatusbar=True)
-
-    pt1.show()
-    pt2.show()
-    pt3.show()
-
-    root.mainloop()
-
-
-def GUI_3(df):
-        def button_event():
-            # root.update()
->>>>>>> 40159c6b4ea7b4eb4bd279ea8f3f4c2c4b1be703
             low = int(myentry1.get())
             high = int(myentry2.get())
-            #show_GUI_table(df)
-            print(df)
             df2 = df[(df['價格'] > low) & (df['價格'] < high)]
             df2 = df2.reset_index(drop=True)
-<<<<<<< HEAD
-            #show_GUI_table(df2)
-            root.destroy()
-=======
             show_GUI_table(df2)
-            # root.destroy()
->>>>>>> 40159c6b4ea7b4eb4bd279ea8f3f4c2c4b1be703
+            root.destroy()
+
         root = tkinter.Tk()
         root.title('同類商品價格查詢')
         root.geometry('400x100')

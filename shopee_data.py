@@ -42,10 +42,10 @@ def create_df(word):
         '價格': price,
     })
     for i in range(5):
-        df = organize_data.remove_zero(df)
-        df = organize_data.remove_outliers(df)
-    df = df.reset_index(drop=True)
-    return df
+        df1 = organize_data.remove_zero(df)
+        df1 = organize_data.remove_outliers(df)
+    df1 = df1.reset_index(drop=True)
+    return [df,df1]
 
 def count():
     jieba.analyse.set_stop_words("stop.txt")

@@ -89,8 +89,9 @@ def GUI_3(df):
             high = int(myentry2.get())
             df2 = df[(df['價格'] > low) & (df['價格'] < high)]
             df2 = df2.reset_index(drop=True)
-            show_GUI_table(df2)
             root.destroy()
+            show_GUI_table(df2)
+
 
         root = tkinter.Tk()
         root.title('同類商品價格查詢')

@@ -7,8 +7,6 @@ from folium.plugins import MarkerCluster
 def gps_loaction(address):
     gps = Nominatim(user_agent="SkittBot")
     location = gps.geocode(address)
-    # print(location)
-    # print(location.longitude,location.latitude)
     return {'lon':location.longitude, 'lat':location.latitude}
 
 
@@ -20,17 +18,17 @@ def createMap():
     #dataFrame資料
     df = shopee_data.create_df('廚具')[0]
     # 將座標資料標註在地圖上
-    for i in range(len(df)):
+    for i in range(20):
         if (df['賣家地址'].equals('None')):  # 沒有地址資訊的不標記在地圖上
             continue
         # 做標點開後的說明(小框框)(HTML格式)
         information = '<b>商品名稱:</b><i>' + str(df['商品名稱'][i]) + '</i><br>' \
                       + '<b>已售出數量:</b><i>' + str(df['已售出數量'][i]) + '</i><br>' \
                       + '<b>價格:</b><i>' + str(df['價格'][i]) + '</i>'
-        print(information)
+        #print(information)
         lon = gps_loaction(df['賣家地址'][i])['lon']
         lat = gps_loaction(df['賣家地址'][i])['lat']
-        print('經度:{},緯度:{}'.format(lon, lat))
+        #print('經度:{},緯度:{}'.format(lon, lat))
         folium.Marker(location=[lat, lon], popup=information).add_to(marker_cluster)
     print('map done')
 
@@ -38,4 +36,3 @@ def createMap():
     m0.save('map.html')
 
 
-createMap()

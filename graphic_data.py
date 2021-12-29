@@ -45,19 +45,6 @@ def draw_box_figure(df):
     plt.show()
 
 
-def window_result(df):
-    app = tkinter.Tk()
-    app.geometry('600x400+200+100')
-    app.title('商品列表')
-    f = tkinter.Frame(app)
-    f.pack(fill=tkinter.BOTH, expand=1)
-
-    table = pt = pandastable.Table(f, dataframe=df,
-                                   showtoolbar=True, showstatusbar=True)
-    pt.show()
-    app.mainloop()
-
-
 def show_GUI_table(df):
     app = tkinter.Toplevel()
     app.title('商品列表')

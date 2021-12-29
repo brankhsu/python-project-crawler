@@ -49,11 +49,14 @@ def create_df(word):
 def count():
     jieba.analyse.set_stop_words("stop.txt")
     text = ''
+    #統計商品名子
     for i in name:
         text += i
+    #找除前十項出現次數的詞
     tags = jieba.analyse.extract_tags(text, topK=10, withWeight=True)
     name2 = []
     times = []
+    #分別將商品名稱和出現次數家到list
     for tag, weight in tags:
         name2.append(tag)
         times.append(int(weight * 10000))
@@ -61,5 +64,6 @@ def count():
         '商品名稱': name2,
         '出現次數': times,
     })
+    #為了畫圓餅圖設定index
     count_df.set_index('商品名稱' , inplace=True)
     return count_df

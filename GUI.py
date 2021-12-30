@@ -1,11 +1,7 @@
 import tkinter
 from tkinter import *
-import pandastable
-import pandas
-import codecs
 import shopee_data as sd
 import matplotlib.pyplot as plt
-from tkinterhtml import HtmlFrame
 import map
 from graphic_data import draw_scatter_figure, show_GUI_table
 from tkhtmlview import HTMLLabel
@@ -136,8 +132,8 @@ def GUI_4():
     root = tkinter.Tk()
     root.title("showMap")
     root.geometry("200x200")
-    #         有能夠接受html格式參數的label
-    mylabel = HTMLLabel(root , html =r"<h1><a href = 'C:\Users\brank hsu\PycharmProjects\pythonProject1\map.html'>Go to goole map!</a> <h1>")
+    #有能夠接受html格式參數的label
+    mylabel = HTMLLabel(root , html =r"<h1><a href = '.\map.html'>Go to map!!!</a> <h1>")
 
     mylabel.grid(row = 0 , column = 0)
     root.mainloop()

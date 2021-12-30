@@ -11,6 +11,7 @@ def gps_loaction(address):
 
 
 def createMap():
+    print("正在初始化地圖...")
     # 開啟一張初始地圖
     m0 = folium.Map([23.5, 121], zoom_start=7)
     # 座標群集化
@@ -18,7 +19,9 @@ def createMap():
     #dataFrame資料
     df = shopee_data.create_df('廚具')[0]
     # 將座標資料標註在地圖上
-    for i in range(20):
+    print("這可能會需要一點時間...")
+    for i in range(len(df)):
+        print(f"第{i}筆位置以標註在地圖上")
         if (df['賣家地址'].equals('None')):  # 沒有地址資訊的不標記在地圖上
             continue
         # 做標點開後的說明(小框框)(HTML格式)

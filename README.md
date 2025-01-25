@@ -1,29 +1,7 @@
 # python-project-crawler
 
-![投影片1](https://github.com/brankhsu/python-project-crawler/assets/92431095/951200da-a77b-428f-9c6d-3df6c3f567bf)
-![投影片2](https://github.com/brankhsu/python-project-crawler/assets/92431095/564e16e5-8bbb-4b4f-ba82-70857c34bf00)
-![投影片3](https://github.com/brankhsu/python-project-crawler/assets/92431095/95bfef63-5d1c-466c-9c08-5931d307b49b)
-![投影片4](https://github.com/brankhsu/python-project-crawler/assets/92431095/9fe367a5-9206-4496-96d8-68eaa9a84368)
-![投影片5](https://github.com/brankhsu/python-project-crawler/assets/92431095/bb64e68f-fc4a-43c6-a3c7-644fd0033fb3)
-![投影片6](https://github.com/brankhsu/python-project-crawler/assets/92431095/9a91fd31-087d-48b9-8e4c-630177b1ac09)
-![投影片7](https://github.com/brankhsu/python-project-crawler/assets/92431095/edeae975-d5c7-4b5e-a041-04ddbdcee636)
-![投影片8](https://github.com/brankhsu/python-project-crawler/assets/92431095/ac80cbe7-f593-42ad-9db0-9023fc13379d)
-![投影片9](https://github.com/brankhsu/python-project-crawler/assets/92431095/04453860-6263-49a8-ae28-021401b67564)
-![投影片10](https://github.com/brankhsu/python-project-crawler/assets/92431095/e29d2f4d-076d-4f12-bb24-41c10f1ae4a8)
-![投影片11](https://github.com/brankhsu/python-project-crawler/assets/92431095/1f17282b-38bc-4404-a905-f2d67951d1cd)
-![投影片12](https://github.com/brankhsu/python-project-crawler/assets/92431095/d0f04d73-bf20-4845-8437-a090b992b60a)
-![投影片13](https://github.com/brankhsu/python-project-crawler/assets/92431095/f9be33b2-d27f-4cec-893d-ea0db424e1e4)
-![投影片14](https://github.com/brankhsu/python-project-crawler/assets/92431095/c05fde31-fe30-46d4-b91e-744ea3589aa9)
-![投影片15](https://github.com/brankhsu/python-project-crawler/assets/92431095/7f281793-d26b-4fae-abfa-587c3182e4bd)
-![投影片16](https://github.com/brankhsu/python-project-crawler/assets/92431095/5cfcfe89-a545-4aac-bdc2-45fc5e015c7e)
-![投影片17](https://github.com/brankhsu/python-project-crawler/assets/92431095/c6e7d1b4-abc6-4298-a263-a9851c0b4dfe)
-![投影片18](https://github.com/brankhsu/python-project-crawler/assets/92431095/40b224cd-1a4d-42a2-a02d-bf934cf42008)
-![投影片19](https://github.com/brankhsu/python-project-crawler/assets/92431095/9994e6ad-cc13-4929-a717-6637af6157b8)
-![投影片20](https://github.com/brankhsu/python-project-crawler/assets/92431095/5797bd24-de32-4a14-8220-e110111c2080)
-![投影片21](https://github.com/brankhsu/python-project-crawler/assets/92431095/51cd5906-0c61-4d9d-af78-40982f09e622)
-![投影片22](https://github.com/brankhsu/python-project-crawler/assets/92431095/f773fa2e-d075-4ded-a873-3bc52621d4f0)
-![投影片23](https://github.com/brankhsu/python-project-crawler/assets/92431095/fd964e4c-c531-4e4a-b659-4acba15ed0d8)
-![投影片24](https://github.com/brankhsu/python-project-crawler/assets/92431095/eddfb85e-8a95-4454-9b2c-1381c33668b8)
-![投影片25](https://github.com/brankhsu/python-project-crawler/assets/92431095/fd269d94-ef2d-4b5f-bcf4-645f09076bd6)
-![投影片26](https://github.com/brankhsu/python-project-crawler/assets/92431095/4891587c-4c9b-4e98-baf9-9c2f23e7e48b)
-![投影片27](https://github.com/brankhsu/python-project-crawler/assets/92431095/ef87f562-7991-44f5-8788-eef18134ac0e)
+在剛成為賣家不熟悉市場時 , 定價策略顯得尤其重要 為了找到在蝦皮上最佳銷售策略，所以撰寫了這支蝦皮賣家競品分析。 此次的目標很簡單，掌握競品情報來提高自己銷售業績：
+1.找出商品的人氣特性
+2.透過觀察價格分布決定價格,並預估收益
+3.實際搜尋
+4.找出賣家地理位置分布,決定賣場要設哪
